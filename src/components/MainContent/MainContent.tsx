@@ -1,10 +1,10 @@
 import { fetchData } from "../../redux/reducers/DataSlice";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card/Card";
 
 
-const MainContent = () => {
+const MainContent:React.FC<{dark:boolean}> = (props) => {
 
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.countries);
@@ -16,8 +16,8 @@ const MainContent = () => {
 
 
   return (
-    <div className="w-full grid lg:grid-cols-4 gap-3 px-6 py-8  lg:px-20 lg:py-4">
-      {data.map((value:any, index) => (
+    <div className="w-full grid lg:grid-cols-4 gap-6 px-6 py-8  lg:px-20 lg:py-4">
+      {data.map((value:any, index:number) => (
         <Card
           key={index}
           flag={value.flags.png}
@@ -25,6 +25,7 @@ const MainContent = () => {
           population={value.population}
           region={value.region}
           capital={value.capital}
+          dark={props.dark}
         />
       ))}
     </div>

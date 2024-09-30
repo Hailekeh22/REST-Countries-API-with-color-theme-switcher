@@ -18,7 +18,7 @@ const HomePage:React.FC<propValues> = (props) => {
     >
       <Header darkMode={props.darkMode} setDark={props.setDark} />
       <Filter dark={props.darkMode} />
-      <MainContent />
+      <MainContent dark={props.darkMode} />
     </div>
   );
 }
