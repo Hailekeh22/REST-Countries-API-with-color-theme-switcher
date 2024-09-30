@@ -1,6 +1,7 @@
 import { useState } from "react"
-import Header from "./components/Header/Header";
-import Filter from "./components/Filter/Filter";
+import HomePage from "./Pages/HomePage";
+import {Routes, Route} from "react-router-dom"
+import Info from "./Pages/Info";
 
 
 const App = () => {
@@ -9,10 +10,12 @@ const App = () => {
 
 
   return (
-    <div className={`bg-white min-h-[100vh] ${darkMode && "dark"} duration-300 ease-out dark:bg-[#1e272e]`}>
-      <Header darkMode={darkMode} setDark={setDarkMode} />
-      <Filter dark={darkMode} />
-    </div>
+    <>
+    <Routes>
+      <Route path="/" element={<HomePage darkMode={darkMode} setDark={setDarkMode} />} />
+      <Route path="/info" element={<Info />} />
+    </Routes>
+    </>
   );
 }
 

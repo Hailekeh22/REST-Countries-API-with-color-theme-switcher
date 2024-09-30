@@ -14,7 +14,7 @@ const Filter: React.FC<{dark:boolean}> = (props) => {
           placeholder="Search for a country..."
         />
       </div>
-      <div className="mt-14 lg:mt-0 max-w-[13rem] lg:pt-0 dark:bg-[#243038] ">
+      <div className="mt-14 lg:mt-0 max-w-[13rem] lg:pt-0 shadow-lg ">
         <Dropdown />
       </div>
     </div>
