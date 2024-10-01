@@ -1,6 +1,5 @@
 import React from "react";
 import Filter from "../components/Filter/Filter";
-import Header from "../components/Header/Header";
 import MainContent from "../components/MainContent/MainContent";
 
 
@@ -16,7 +15,6 @@ const HomePage:React.FC<propValues> = (props) => {
         props.darkMode && "dark"
       } duration-300 ease-out dark:bg-[#1e272e]`}
     >
-      <Header darkMode={props.darkMode} setDark={props.setDark} />
       <Filter dark={props.darkMode} />
       <MainContent dark={props.darkMode} />
     </div>

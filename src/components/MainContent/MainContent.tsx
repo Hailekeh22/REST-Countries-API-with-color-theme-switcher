@@ -16,6 +16,7 @@ const MainContent:React.FC<{dark:boolean}> = (props) => {
   }, [dispatch]);
 
 
+
   return (
     <div className="w-full grid lg:grid-cols-4 gap-6 px-6 py-8  lg:px-20 lg:py-4">
       {loading ? (

@@ -29,7 +29,7 @@ const dataSlice = createSlice({
     reducers:{},
     extraReducers:(builder) => {
       builder.addCase(fetchData.pending, (state) => {
-        state.loading = true
+        state.loading = true;
       }),
       builder.addCase(fetchData.fulfilled, (state, action) => {
         state.loading = false;
@@ -42,4 +42,4 @@ const dataSlice = createSlice({
     }
 })
 
-export default dataSlice.reducer
+export const countriesReducer = dataSlice.reducer;
