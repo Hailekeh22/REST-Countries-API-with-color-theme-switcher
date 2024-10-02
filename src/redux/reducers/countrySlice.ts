@@ -15,12 +15,11 @@ const initialState:dataValue ={
 
 export const countryInformation = createAsyncThunk(
   "countrydata",
-  async (name:string) => {
+  async (code:string) => {
     const response = await axios.get(
-      `https://restcountries.com/v3.1/name/${name}`
+      `https://restcountries.com/v2/alpha/${code}`
     ); 
     return response.data;
-
   }
 );
 

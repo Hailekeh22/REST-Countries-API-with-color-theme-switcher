@@ -12,8 +12,6 @@ const HomePage:React.FC = () => {
   const {darkMode} = useSelector((state:RootState) => state.theme);
 
 
-
-
   return (
     <div
       className={`bg-white min-h-[100vh] ${

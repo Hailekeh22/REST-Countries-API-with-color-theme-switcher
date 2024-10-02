@@ -1,7 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { RootState } from "../../../redux/store";
+import { RootState, AppDispatch } from "../../../redux/store";
+import { countryInformation } from "../../../redux/reducers/countrySlice";
 
 interface propValues {
     flag:string,
@@ -9,20 +10,26 @@ interface propValues {
     population: number,
     region: string,
     capital: string,
+    code: string
 
 }
 
 const Card:React.FC<propValues> = (props) => {
 
+  const dispatch = useDispatch<AppDispatch>();
+  const {darkMode} = useSelector((state:RootState) => state.theme);
 
-  const {darkMode} = useSelector((state:RootState) => state.theme)
+  const countryData = () => {
+    dispatch(countryInformation(props.code));
+  }
 
   const states = {
-    name: props.name,
-  }
+    code: props.code,
+  };
 
   return (
     <div
+      onClick={countryData}
       className={`${
         darkMode && "dark"
       } w-auto dark:text-white dark:bg-[#243038] cursor-pointer shadow-lg duration-300 ease-out rounded-md flex flex-col `}
