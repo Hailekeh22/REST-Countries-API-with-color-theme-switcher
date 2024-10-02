@@ -15,7 +15,7 @@ const initialState:dataValue ={
 
 export const countryInformation = createAsyncThunk(
   "countrydata",
-  async (name) => {
+  async (name:string) => {
     const response = await axios.get(
       `https://restcountries.com/v3.1/name/${name}`
     ); 

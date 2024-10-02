@@ -3,12 +3,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card/Card";
 import Loading from "./loader/Loading";
+import { RootState } from "../../redux/store";
+import { AppDispatch } from "../../redux/store";
 
 
-const MainContent:React.FC<{dark:boolean}> = (props) => {
+const MainContent:React.FC = () => {
 
-  const dispatch = useDispatch();
-  const { data, loading, error } = useSelector((state) => state.countries);
+  const dispatch = useDispatch<AppDispatch>();
+  const { data, loading } = useSelector((state:RootState) => state.countries);
 
 
   useEffect(() => {
@@ -29,8 +31,7 @@ const MainContent:React.FC<{dark:boolean}> = (props) => {
             name={value.name.common}
             population={value.population}
             region={value.region}
-            capital={value.capital}
-            dark={props.dark}
+            capital={value.capital}        
           />
         ))
       )}

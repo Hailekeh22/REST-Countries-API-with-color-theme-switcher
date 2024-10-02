@@ -1,15 +1,15 @@
 import React from 'react'
-
-interface propsValue {
-    darkMode: boolean;
-    
-}
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 
+const Country: React.FC = () => {
 
-const Country: React.FC<propsValue> = (props) => {
+  const {darkMode} = useSelector((state:RootState) => state.theme)
+
+
   return (
-    <div className={`${props.darkMode && "dark"} flex w-full  mt-10`}>
+    <div className={`${darkMode && "dark"} flex w-full  mt-10`}>
       <div className=" h-[25rem]">
         <img
           className=" h-full"

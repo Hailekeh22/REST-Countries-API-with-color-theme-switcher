@@ -6,13 +6,16 @@ import { countryInformation } from "../redux/reducers/countrySlice";
 import Loading from "../components/MainContent/loader/Loading";
 import Country from "../components/Detail/Country";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { RootState } from "../redux/store";
+import { AppDispatch } from "../redux/store";
 
 
 
 
-const Info:React.FC<{darkMode: boolean}> = (props) => {
-  const dispatch = useDispatch();
-  const { data, loading, error } = useSelector((state) => state.countryInfo);
+const Info:React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { data, loading } = useSelector((state:RootState) => state.countryInfo);
+  const {darkMode} = useSelector((state:RootState) => state.theme);
   const location = useLocation();
   const {name} = location.state;
 
@@ -25,15 +28,12 @@ const Info:React.FC<{darkMode: boolean}> = (props) => {
 
   console.log(data)
 
-  const allProps = {
-    darkMode: props.darkMode,
-  };
 
 
   return (
     <div
       className={`${
-        props.darkMode && "dark"
+        darkMode && "dark"
       } px-6 py-8  lg:px-20 lg:py-4 duration-300 ease-out dark:text-white min-h-[100vh] dark:bg-[#1e272e]`}
     >
       <Link to="/">
@@ -43,7 +43,7 @@ const Info:React.FC<{darkMode: boolean}> = (props) => {
          </div>
         </div>
       </Link>
-      {loading ? <Loading /> : <Country {...allProps} />}
+      {loading ? <Loading /> : <Country />}
     </div>
   );
 }

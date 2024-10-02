@@ -1,22 +1,27 @@
 import React from "react";
 import Filter from "../components/Filter/Filter";
 import MainContent from "../components/MainContent/MainContent";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 
-interface propValues {
-  darkMode: boolean;
-  setDark: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
-const HomePage:React.FC<propValues> = (props) => {
+const HomePage:React.FC = () => {
+
+
+  const {darkMode} = useSelector((state:RootState) => state.theme);
+
+
+
+
   return (
     <div
       className={`bg-white min-h-[100vh] ${
-        props.darkMode && "dark"
+        darkMode && "dark"
       } duration-300 ease-out dark:bg-[#1e272e]`}
     >
-      <Filter dark={props.darkMode} />
-      <MainContent dark={props.darkMode} />
+      <Filter />
+      <MainContent />
     </div>
   );
 }

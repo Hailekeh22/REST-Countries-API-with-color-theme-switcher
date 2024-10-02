@@ -1,13 +1,19 @@
 import React from "react";
 import { CiSearch } from "react-icons/ci";
 import Dropdown from "./Dropdown";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 
-const Filter: React.FC<{dark:boolean}> = (props) => {
+const Filter: React.FC = () => {
+
+  const {darkMode} = useSelector((state:RootState) => state.theme)
+
+
   return (
     <div className="  lg:flex lg:items-center lg:justify-between w-full max-w-screen-2xl mx-auto px-4 py-10 lg:px-20 bg-transparent">
       <div className="flex items-center gap-3 shadow-md py-2 px-8 min-w-[20rem] lg:min-w-[27rem]  border-2 duration-300 ease-out  dark:bg-[#243038] dark:border-[#243038]">
-        {props.dark ? <CiSearch style={{ color: "white" }} /> : <CiSearch />}
+        {darkMode ? <CiSearch style={{ color: "white" }} /> : <CiSearch />}
         <input
           type="text"
           className="bg-transparent w-full border-0 outline-none text-white"

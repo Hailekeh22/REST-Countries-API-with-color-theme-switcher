@@ -9,11 +9,11 @@ interface dataValue {
 }
 
 
-export const fetchData = createAsyncThunk("fetchCountries", async() => {
-    const countries = await axios.get("https://restcountries.com/v3.1/all");
+export const fetchData = createAsyncThunk<any[], void>("fetchCountries", async () => {
+  const countries = await axios.get("https://restcountries.com/v3.1/all");
 
-    return countries.data;
-})
+  return countries.data;
+});
 
 
 const initialState:dataValue = {

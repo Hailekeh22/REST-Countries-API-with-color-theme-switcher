@@ -1,6 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { RootState } from "../../../redux/store";
 
 interface propValues {
     flag:string,
@@ -8,10 +9,13 @@ interface propValues {
     population: number,
     region: string,
     capital: string,
-    dark:boolean
+
 }
 
 const Card:React.FC<propValues> = (props) => {
+
+
+  const {darkMode} = useSelector((state:RootState) => state.theme)
 
   const states = {
     name: props.name,
@@ -20,7 +24,7 @@ const Card:React.FC<propValues> = (props) => {
   return (
     <div
       className={`${
-        props.dark && "dark"
+        darkMode && "dark"
       } w-auto dark:text-white dark:bg-[#243038] cursor-pointer shadow-lg duration-300 ease-out rounded-md flex flex-col `}
     >
       <Link to="/info" state={states}>
