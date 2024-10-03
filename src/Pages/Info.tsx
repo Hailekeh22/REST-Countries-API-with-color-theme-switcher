@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Loading from "../components/MainContent/loader/Loading";
 import Country from "../components/Detail/Country";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { RootState } from "../redux/store";
+import { AppDispatch } from "../redux/store";
+import { fetchBorders } from "../redux/reducers/borderSlice";
+
+
+
 
 const Info: React.FC = () => {
-  const { loading } = useSelector((state: RootState) => state.countryInfo);
+  const dispatch = useDispatch<AppDispatch>();
+  const { data, loading } = useSelector((state: RootState) => state.countryInfo);
   const { darkMode } = useSelector((state: RootState) => state.theme);
+
+useEffect(() => {
+ const fetchborderdata = async () => {
+   if (data.borders && data.borders.length > 0) {
+     const borders: string = await data.borders.map((item: string) => item).join(",");
+     await dispatch(fetchBorders(borders));
+   } else {
+     await dispatch(fetchBorders(""));
+   }
+ }
+ fetchborderdata();
+
+}, [dispatch,data]);
 
 
 

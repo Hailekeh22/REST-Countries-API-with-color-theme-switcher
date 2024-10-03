@@ -2,13 +2,15 @@ import { configureStore} from "@reduxjs/toolkit";
 import { countriesReducer } from "./reducers/DataSlice";
 import { countryDataReducer } from "./reducers/countrySlice";
 import { themeReducer } from "./reducers/themeSlice";
+import { borderReducer } from "./reducers/borderSlice";
 
 
 export const store = configureStore({
   reducer: {
     countries: countriesReducer,
     countryInfo: countryDataReducer,
-    theme:themeReducer
+    theme:themeReducer,
+    border: borderReducer
 },
 });
 
