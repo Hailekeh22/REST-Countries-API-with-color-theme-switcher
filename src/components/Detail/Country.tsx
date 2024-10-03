@@ -18,20 +18,20 @@ const Country: React.FC = () => {
     <div
       className={`${
         darkMode && "dark"
-      } flex flex-col lg:flex-row w-full  mt-10`}
+      } flex flex-col md:flex-col lg:flex-row w-full h-full  mt-10`}
     >
-      <div className=" h-auto basis-[50%]">
+      <div className=" w-full">
         <img
-          className="  w-full self-center lg:h-full"
+          className=" self-center object-fill max-h-[30rem] max-w-[90%] w-full h-full"
           src={data.flags.png}
           alt="flag"
         />
       </div>
-      <div className="">
-        <div className=" lg:px-28 py-16">
+      <div className=" w-full">
+        <div className=" lg:px-18 py-16">
           <p className=" text-2xl font-bold ">{data.name}</p>
 
-          <div className="flex flex-col lg:flex-row w-[35rem] justify-between my-5 lg:my-10">
+          <div className="flex flex-col lg:flex-row md:flex-row w-full justify-between my-5 lg:my-10">
             <div className="mb-8 lg:mb-0">
               <p>
                 <span className=" font-semibold">Native Name: </span>

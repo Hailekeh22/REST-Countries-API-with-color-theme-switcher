@@ -32,7 +32,7 @@ const Card:React.FC<propValues> = (props) => {
       onClick={countryData}
       className={`${
         darkMode && "dark"
-      } w-auto dark:text-white dark:bg-[#243038] cursor-pointer shadow-lg duration-300 ease-out rounded-md flex flex-col `}
+      } w-auto dark:text-white hover:scale-[103%] hover:shadow-slate-700 dark:hover:shadow-white hover:shadow-sm dark:bg-[#243038] cursor-pointer shadow-lg duration-300 ease-out rounded-md flex flex-col `}
     >
       <Link to="/info" state={states}>
         <img src={props.flag} className="w-full h-44 bg-cover" alt="Flag" />

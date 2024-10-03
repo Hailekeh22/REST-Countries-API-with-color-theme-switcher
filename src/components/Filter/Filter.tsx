@@ -11,7 +11,7 @@ const Filter: React.FC = () => {
 
 
   return (
-    <div className="  lg:flex lg:items-center lg:justify-between w-full max-w-screen-2xl mx-auto px-4 py-10 lg:px-20 bg-transparent">
+    <div className="  lg:flex lg:items-center lg:justify-between w-full max-w-screen-2xl mx-auto py-10  bg-transparent">
       <div className="flex items-center gap-3 shadow-md py-2 px-8 min-w-[20rem] lg:min-w-[27rem]  border-2 duration-300 ease-out  dark:bg-[#243038] dark:border-[#243038]">
         {darkMode ? <CiSearch style={{ color: "white" }} /> : <CiSearch />}
         <input

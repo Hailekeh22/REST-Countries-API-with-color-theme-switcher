@@ -19,23 +19,25 @@ const MainContent:React.FC = () => {
 
 
   return (
-    <div className="w-full grid lg:grid-cols-4 gap-6 px-6 py-8  lg:px-20 lg:py-4">
+    <>
       {loading ? (
         <Loading />
       ) : (
-        data.map((value: any, index: number) => (
-          <Card
-            key={index}
-            flag={value.flags.png}
-            name={value.name.common}
-            population={value.population}
-            region={value.region}
-            capital={value.capital}
-            code={value.cca2}
-          />
-        ))
+        <div className="w-full grid lg:grid-cols-4 md:grid-cols-2 max-w-screen-2xl mx-auto gap-6 py-8 lg:py-4">
+          {data.map((value: any, index: number) => (
+            <Card
+              key={index}
+              flag={value.flags.png}
+              name={value.name.common}
+              population={value.population}
+              region={value.region}
+              capital={value.capital}
+              code={value.cca2}
+            />
+          ))}
+        </div>
       )}
-    </div>
+    </>
   );
 }
 

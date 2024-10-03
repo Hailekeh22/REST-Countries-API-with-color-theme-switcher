@@ -17,22 +17,24 @@ const Info: React.FC = () => {
     <div
       className={`${
         darkMode && "dark"
-      } px-6 py-8  lg:px-20 lg:py-4 duration-300 ease-out dark:text-white min-h-[100vh] dark:bg-[#1e272e]`}
+      } dark:bg-[#1e272e] w-full flex justify-center items-center lg:px-20 px-4 py-14`}
     >
-      <Link to="/">
-        <div className="shadow-md w-32 px-5 py-2 dark:bg-[#243038] flex justify-center">
-          <div className="flex items-center gap-2">
-            <FaArrowLeftLong /> <p className="w-full h-full">Back</p>
+      <div className=" max-w-screen-2xl mx-auto  duration-300 ease-out w-full h-full dark:text-white min-h-[80vh] dark:bg-[#1e272e]">
+        <Link to="/">
+          <div className="shadow-md w-32 px-5 py-2 dark:bg-[#243038] flex justify-center">
+            <div className="flex items-center gap-2">
+              <FaArrowLeftLong /> <p className="w-full h-full">Back</p>
+            </div>
           </div>
-        </div>
-      </Link>
-      {loading ? (
-        <Loading />
-      ) : (
-        <div>
-          <Country />
-        </div>
-      )}
+        </Link>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div>
+            <Country />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
