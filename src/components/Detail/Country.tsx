@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { fetchBorders } from "../../redux/reducers/borderSlice";
 import { AppDispatch } from "../../redux/store";
+import { countryInformation } from "../../redux/reducers/countrySlice";
+
 
 const Country: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { darkMode } = useSelector((state: RootState) => state.theme);
   const { data } = useSelector((state: RootState) => state.countryInfo);
-  const { borderData, fetchingBorders } = useSelector(
-    (state: RootState) => state.border
-  );
+  const { borderData, fetchingBorders } = useSelector((state: RootState) => state.border);
 
   useEffect(() => {
     if (data?.borders && data.borders.length > 0) {
@@ -19,6 +19,16 @@ const Country: React.FC = () => {
       dispatch({ type: "borders/noBorder" });
     }
   }, [data, dispatch]);
+
+  console.log(borderData);
+
+
+  const fetchNew = (alpha:string) => {
+    dispatch(countryInformation(alpha));
+    dispatch(fetchBorders(alpha));
+  }
+
+
 
   if (!data || Object.keys(data).length === 0) {
     return <p>No data available</p>;
@@ -92,7 +102,8 @@ const Country: React.FC = () => {
                 borderData.map((item: any, index: number) => (
                   <button
                     key={index}
-                    className="shadow-md dark:bg-[#243038] px-3 mr-1 mb-1 py-2 lg:mb-2 lg:mx-2"
+                    className="shadow-md hover:scale-[105%] bg-slate-200 hover:shadow-sm hover:shadow-black duration-200 dark:hover:shadow-white dark:bg-[#243038] px-3 mr-1 mb-1 py-2 lg:mb-2 lg:mx-2"
+                    onClick={() => fetchNew(item.alpha3Code)}
                   >
                     {item.name}
                   </button>
