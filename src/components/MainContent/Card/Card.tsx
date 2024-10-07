@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState, AppDispatch } from "../../../redux/store";
 import { countryInformation } from "../../../redux/reducers/countrySlice";
+import { removeSearch } from "../../../redux/reducers/filterSlice";
 
 interface propValues {
     flag:string,
@@ -21,6 +22,7 @@ const Card:React.FC<propValues> = (props) => {
 
   const countryData = () => {
     dispatch(countryInformation(props.code));
+    dispatch(removeSearch());
   }
 
   const states = {

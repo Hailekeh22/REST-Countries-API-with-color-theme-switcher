@@ -7,17 +7,18 @@ import { RootState } from "../../redux/store";
 import { AppDispatch } from "../../redux/store";
 
 
+
 const MainContent:React.FC = () => {
-
   const dispatch = useDispatch<AppDispatch>();
-  const { data,loading } = useSelector((state:RootState) => state.countries);
-
+  const { data, loading } = useSelector((state: RootState) => state.countries);
+  const { searchTerm } = useSelector((state: RootState) => state.search);
 
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
 
-
+  const filteredSearch = searchTerm ? data.filter((value: any) =>
+      value.name.common.toLowerCase().includes(searchTerm.toLowerCase())) : data; 
 
   return (
     <>
@@ -25,7 +26,7 @@ const MainContent:React.FC = () => {
         <Loading />
       ) : (
         <div className="w-full grid lg:grid-cols-4 md:grid-cols-2 max-w-screen-2xl mx-auto gap-6 py-8 lg:py-4">
-          {data.map((value: any, index: number) => (
+          {filteredSearch.map((value: any, index: number) => (
             <Card
               key={index}
               flag={value.flags.png}

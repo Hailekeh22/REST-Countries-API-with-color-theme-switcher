@@ -3,15 +3,17 @@ import { countriesReducer } from "./reducers/DataSlice";
 import { countryDataReducer } from "./reducers/countrySlice";
 import { themeReducer } from "./reducers/themeSlice";
 import { borderReducer } from "./reducers/borderSlice";
+import { searchReducer } from "./reducers/filterSlice";
 
 
 export const store = configureStore({
   reducer: {
     countries: countriesReducer,
     countryInfo: countryDataReducer,
-    theme:themeReducer,
-    border: borderReducer
-},
+    theme: themeReducer,
+    border: borderReducer,
+    search: searchReducer
+  },
 });
 
 

@@ -1,13 +1,22 @@
 import React from "react";
 import { CiSearch } from "react-icons/ci";
 import Dropdown from "./Dropdown";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "../../redux/store";
 import { RootState } from "../../redux/store";
+import { search } from "../../redux/reducers/filterSlice";
 
 
 const Filter: React.FC = () => {
 
+  const dispatch = useDispatch<AppDispatch>()
   const {darkMode} = useSelector((state:RootState) => state.theme)
+
+
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    dispatch(search(val));
+  };
 
 
   return (
@@ -18,6 +27,7 @@ const Filter: React.FC = () => {
           type="text"
           className="bg-transparent w-full border-0 outline-none text-white"
           placeholder="Search for a country..."
+          onChange={handleInput}
         />
       </div>
       <div className="mt-14 lg:mt-0 max-w-[13rem] lg:pt-0 shadow-lg ">

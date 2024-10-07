@@ -22,7 +22,9 @@ const Header:React.FC = () => {
     >
       <div className="flex items-center justify-between max-w-screen-2xl mx-auto">
         <div>
-          <p className=" font-bold">Where in the world?</p>
+          <a href="/">
+            <p className=" font-bold">Where in the world?</p>
+          </a>
         </div>
         <div >
           {darkMode ? (
