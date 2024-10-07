@@ -18,7 +18,7 @@ const Header:React.FC = () => {
     <div
       className={`${
         darkMode && "dark"
-      } w-full z-10 sticky top-0 shadow-lg px-6 py-8  lg:px-20 lg:py-4 duration-300 ease-out dark:text-white dark:bg-[#243038]`}
+      } w-full z-10 sticky top-0 shadow-lg px-6 py-8 bg-white lg:px-20 lg:py-4 duration-300 ease-out dark:text-white dark:bg-[#243038]`}
     >
       <div className="flex items-center justify-between max-w-screen-2xl mx-auto">
         <div>

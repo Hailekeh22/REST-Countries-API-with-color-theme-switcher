@@ -36,6 +36,8 @@ const countrySlice = createSlice({
         builder.addCase(countryInformation.fulfilled, (state, action) => {
           state.loading = false;
           state.data = action.payload;
+          localStorage.setItem("countryInfo",JSON.stringify(action.payload));
+
         });
         builder.addCase(countryInformation.rejected, (state) => {
           state.error = true;

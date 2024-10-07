@@ -10,12 +10,13 @@ import { AppDispatch } from "../../redux/store";
 const MainContent:React.FC = () => {
 
   const dispatch = useDispatch<AppDispatch>();
-  const { data, loading } = useSelector((state:RootState) => state.countries);
+  const { data,loading } = useSelector((state:RootState) => state.countries);
 
 
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
+
 
 
   return (

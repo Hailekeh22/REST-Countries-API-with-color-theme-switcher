@@ -11,6 +11,7 @@ import { setDarkTheme } from "./redux/reducers/themeSlice";
 
 const App = () => {
 
+  const {darkMode} = useSelector((state:RootState) => state.theme)
   const dispatch = useDispatch()
 
     useEffect(() => {
@@ -20,7 +21,6 @@ const App = () => {
         dispatch(setDarkTheme());
       }
     }, []);
-  const {darkMode} = useSelector((state:RootState) => state.theme)
 
   useEffect(() => {
     localStorage.setItem("mode", darkMode.toString());
