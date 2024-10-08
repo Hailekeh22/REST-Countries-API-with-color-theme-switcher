@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface value {
-    searchTerm: string
+    searchTerm: string,
+    region: string
 }
 
 const initialState:value = {
-    searchTerm: ""
+    searchTerm: "",
+    region: ""
 }
 
 
@@ -16,6 +18,9 @@ const filterSlice = createSlice({
     search: (state, action: PayloadAction<string>) => {
       state.searchTerm = action.payload;
     },
+    filterByRegion : (state, action: PayloadAction<string>) => {
+      state.region = action.payload;
+    },
     removeSearch: (state) => {
         state.searchTerm = ""
     }
@@ -23,4 +28,4 @@ const filterSlice = createSlice({
 });
 
 export const searchReducer = filterSlice.reducer;
-export const { search, removeSearch } = filterSlice.actions;
+export const { search, removeSearch, filterByRegion } = filterSlice.actions;

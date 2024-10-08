@@ -21,7 +21,6 @@ const Country: React.FC = () => {
     }
   }, [data, dispatch]);
 
-  console.log(borderData);
 
 
   const fetchNew = (alpha:string) => {
