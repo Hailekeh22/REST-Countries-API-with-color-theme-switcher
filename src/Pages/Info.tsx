@@ -20,9 +20,7 @@ const Info: React.FC = () => {
       const savedData = JSON.parse(localStorage.getItem("countryInfo") || "{}");
       if (savedData && Object.keys(savedData).length > 0) {
         dispatch({ type: "countrydata/fulfilled", payload: savedData }); 
-      } else {
-        navigate("/");
-      }
+      } 
     }
   }, [data, dispatch, navigate]);
 

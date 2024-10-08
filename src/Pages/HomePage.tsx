@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Filter from "../components/Filter/Filter";
 import MainContent from "../components/MainContent/MainContent";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
 
-
 const HomePage:React.FC = () => {
+
+
+  useEffect(() => {
+    localStorage.removeItem("countryInfo");
+  }, [])
 
 
   const {darkMode} = useSelector((state:RootState) => state.theme);

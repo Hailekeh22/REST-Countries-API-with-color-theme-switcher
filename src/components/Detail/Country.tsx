@@ -13,6 +13,7 @@ const Country: React.FC = () => {
   const { borderData, fetchingBorders } = useSelector((state: RootState) => state.border);
 
   useEffect(() => {
+
     if (data?.borders && data.borders.length > 0) {
       dispatch(fetchBorders(data.borders.join(","))); 
     } else {

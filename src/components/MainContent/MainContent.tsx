@@ -20,6 +20,8 @@ const MainContent:React.FC = () => {
   const filteredSearch = searchTerm ? data.filter((value: any) =>
       value.name.common.toLowerCase().includes(searchTerm.toLowerCase())) : data; 
 
+  console.log(data);
+
   return (
     <>
       {loading ? (
