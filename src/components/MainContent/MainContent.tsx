@@ -24,9 +24,6 @@ const MainContent:React.FC = () => {
       }
     }, [region]); 
 
-  useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch]);
 
   const filteredSearch = searchTerm ? data.filter((value: any) =>
       value.name.common.toLowerCase().includes(searchTerm.toLowerCase())) : data; 

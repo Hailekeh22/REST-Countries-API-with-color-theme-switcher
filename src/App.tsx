@@ -7,12 +7,18 @@ import { RootState } from "./redux/store";
 import { useEffect } from "react";
 
 import { setDarkTheme } from "./redux/reducers/themeSlice";
+import { fetchData } from "./redux/reducers/DataSlice";
+import { AppDispatch } from "./redux/store";
 
 
 const App = () => {
 
   const {darkMode} = useSelector((state:RootState) => state.theme)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
+
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
 
     useEffect(() => {
       const dark = localStorage.getItem("mode");
@@ -25,6 +31,12 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("mode", darkMode.toString());
   },[darkMode])
+
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
+
+  
 
 
 
