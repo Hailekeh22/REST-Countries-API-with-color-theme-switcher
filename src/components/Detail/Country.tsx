@@ -43,7 +43,7 @@ const Country: React.FC = () => {
       <div className="w-full">
         <img
           className="self-center object-fill max-h-[30rem] w-full lg:max-w-[90%] h-full"
-          src={data.flags?.png}
+          src={data.flags?.svg}
           alt="flag"
         />
       </div>
