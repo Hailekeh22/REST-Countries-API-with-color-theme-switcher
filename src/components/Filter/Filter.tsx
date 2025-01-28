@@ -25,7 +25,7 @@ const Filter: React.FC = () => {
         {darkMode ? <CiSearch style={{ color: "white" }} /> : <CiSearch />}
         <input
           type="text"
-          className="bg-transparent w-full border-0 outline-none text-white"
+          className="bg-transparent w-full border-0 outline-none text-black dark:text-white"
           placeholder="Search for a country..."
           onChange={handleInput}
         />
