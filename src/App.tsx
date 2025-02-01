@@ -32,13 +32,6 @@ const App = () => {
     localStorage.setItem("mode", darkMode.toString());
   },[darkMode])
 
-  useEffect(() => {
-    dispatch(fetchData());
-  }, []);
-
-  
-
-
 
 
 
