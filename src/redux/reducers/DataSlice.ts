@@ -10,7 +10,7 @@ interface dataValue {
 
 
 export const fetchData = createAsyncThunk<any[], void>("fetchCountries", async () => {
-  const countries = await axios.get("https://restcountries.com/v3.1/all");
+  const countries = await axios.get("https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital,cca2");
 
   return countries.data;
 });
